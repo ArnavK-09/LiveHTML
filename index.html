@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live HTML Editor...</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        h1::before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 150px;
+            height: 2px;
+            background-color: #ff0000;
+            transform: translateX(-50%);
+        }
+
+        .editor-container {
+            display: grid;
+            gap: 0.5rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: center;
+            margin: 20px;
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background-color: #ff0000;
+            color: #fff;
+        }
+
+        .iframe-container {
+            height: 100vh;
+            background: white;
+        }
+
+        .preview-content {
+            height: 100vh;
+        }
+
+        #code,
+        #preview {
+            resize: none;
+            overflow: scroll;
+            height: 100%;
+            width: 100%;
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .editor-container {
+                display: grid;
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                align-items: center;
+                margin: 20px;
+            }
+
+            .iframe-container {
+                width: 100%;
+                height: 400px;
+            }
+        }
+    </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body x-data="{ code: '<h1>hello</h1>' }">
+    <!-- heading  -->
+    <h1>Live Code Editor</h1>
+
+    <!-- editor and preview containers -->
+    <div class="editor-container">
+        <div class="preview-content">
+            <textarea name="code" id="code" x-model="code" x-on:input="updatePreview()"></textarea>
+        </div>
+        <div class="iframe-container">
+            <iframe id="preview" x-bind:srcDoc="code" loading="lazy" frameborder="2"></iframe>
+        </div>
+    </div>
+</body>
+</html>
