@@ -7,9 +7,9 @@
 </div>
 
 
-## Features
+## 🍒 Features
 
-✨ **Mobile Friendly**: Experience seamless editing and previewing on all your devices.
+📱 **Mobile Friendly**: Experience seamless editing and previewing on all your devices.
 
 ⚡️ **Fast and Efficient**: Enjoy instant updates and responsiveness for efficient code editing.
 
@@ -17,17 +17,20 @@
 
 🔧 **Full Control**: Complete control over your HTML code, all in a single file.
 
-🔍 **Tiny Size**: Minimalist approach with a lightweight codebase.
+👜 **Tiny Size**: Minimalist approach with a lightweight codebase.
 
 🧪 **Powered by Alpine.js**: Harness the power of Alpine.js for dynamic interactions.
 
-## Usage
+## 🌐 Usage
 
+**Visit [https://arnavk-09.github.io/live-html/](https://arnavk-09.github.io/live-html/) to use this tool.**
+
+## ⚔️ Assemble Locally 
 1. Clone the repository: `git clone https://github.com/ArnavK-09/live-html.git`
 2. Open `index.html` in your preferred browser.
 3. Write your HTML code in the editor and see the live preview instantly!
 
-## Screenshot
+## 📸 Preview 
 
 ![Screenshot](screenshot.jpeg)
 
