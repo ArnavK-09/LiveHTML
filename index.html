@@ -1,117 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live HTML Editor...</title>
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg fill='none' stroke='%230000FF' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' aria-hidden='true'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10'%3E%3C/path%3E%3C/svg%3E" />
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Live HTML Editor...</title>
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg fill='none' stroke='%230000FF' stroke-width='2' viewBox='0 0 24 24'
+					xmlns='http://www.w3.org/2000/svg' aria-hidden='true'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10'%3E%3C/path%3E%3C/svg%3E" />
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f0f0f0;
+                color: #000;
+                margin: 0;
+                padding: 0;
+            }
 
-        h1 {
-            text-align: center;
-            font-family: 'Pacifico', cursive;
-            position: relative;
-            margin-bottom: 30px;
-        }
+            h1 {
+                text-align: center;
+                font-family: 'Pacifico', cursive;
+                position: relative;
+                margin-bottom: 30px;
+            }
 
-        h1::before {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 150px;
-            height: 2px;
-            background-color: #ff0000;
-            transform: translateX(-50%);
-        }
-       
-        textarea {
-           white-space: pre;
-  overflow-wrap: normal;
-  overflow-x: scroll;
-}
+            h1::before {
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                left: 50%;
+                width: 150px;
+                height: 2px;
+                background-color: #ff0000;
+                transform: translateX(-50%);
+            }
 
-        .editor-container {
-            display: grid;
-            gap: 0.5rem;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            align-items: center;
-            margin: 20px;
-        }
+            textarea {
+                white-space: pre;
+                overflow-wrap: normal;
+                overflow-x: scroll;
+            }
 
-        .tabs-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            background-color: #fff;
-            color: #000;
-            cursor: pointer;
-        }
-
-        .tab.active {
-            background-color: #ff0000;
-            color: #fff;
-        }
-
-        .iframe-container {
-            height: 100vh;
-            background: white;
-        }
-
-        .preview-content {
-            height: 100vh;
-        }
-
-        #code,
-        #preview {
-            resize: none;
-            overflow: scroll;
-            height: 100%;
-            width: 100%;
-            outline: none;
-        }
-
-        @media (max-width: 768px) {
             .editor-container {
                 display: grid;
-                grid-template-columns: repeat(1, minmax(0, 1fr));
+                gap: 0.5rem;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
                 align-items: center;
-                margin: 18px;
+                margin: 20px;
             }
 
-            .editor-container div {
+            .tabs-container {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .tab {
+                padding: 10px 20px;
+                background-color: #fff;
+                color: #000;
+                cursor: pointer;
+            }
+
+            .tab.active {
+                background-color: #ff0000;
+                color: #fff;
+            }
+
+            .iframe-container {
+                height: 100vh;
+                background: white;
+            }
+
+            .preview-content {
+                height: 100vh;
+            }
+
+            #code,
+            #preview {
+                resize: none;
+                overflow: scroll;
+                height: 100%;
                 width: 100%;
+                outline: none;
             }
-        }
-    </style>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-</head>
 
-<body x-data="{ code: '<h1>hello</h1>' }">
-    <!-- heading  -->
-    <h1>Live Code Editor</h1>
+            @media (max-width: 768px) {
+                .editor-container {
+                    display: grid;
+                    grid-template-columns: repeat(1, minmax(0, 1fr));
+                    align-items: center;
+                    margin: 18px;
+                }
 
-    <!-- editor and preview containers -->
-    <div class="editor-container">
-        <div class="preview-content">
-            <textarea name="code" id="code"></textarea>
+                .editor-container div {
+                    width: 100%;
+                }
+            }
+        </style>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+    <body x-data="{ code: '
+						<h1>hello</h1>' }">
+        <!-- heading  -->
+        <h1>Live Code Editor</h1>
+        <!-- editor and preview containers -->
+        <div class="editor-container">
+            <div class="preview-content">
+                <textarea name="code" id="code"></textarea>
+            </div>
+            <div class="iframe-container">
+                <iframe id="preview" x-bind:srcDoc="code" loading="lazy" style="border:1px solid;"></iframe>
+            </div>
         </div>
-        <div class="iframe-container">
-            <iframe id="preview" x-bind:srcDoc="code" loading="lazy" style="border:1px solid;"></iframe>
-        </div>
-    </div>
-</body>
+    </body>
 </html>
