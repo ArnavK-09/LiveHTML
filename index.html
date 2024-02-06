@@ -99,13 +99,13 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     </head>
-    <body x-data="{ code:'<h1>hello</h1>' }">
+    <body x-data="{ code: '<h1>hello</h1>' }">
         <!-- heading  -->
         <h1>Live Code Editor</h1>
         <!-- editor and preview containers -->
         <div class="editor-container">
             <div class="preview-content">
-                <textarea name="code" id="code"></textarea>
+                <textarea x-model="code" name="code" id="code"></textarea>
             </div>
             <div class="iframe-container">
                 <iframe id="preview" x-bind:srcDoc="code" loading="lazy" style="border:1px solid;"></iframe>
