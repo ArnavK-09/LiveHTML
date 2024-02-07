@@ -105,7 +105,7 @@
         <!-- editor and preview containers -->
         <div class="editor-container">
             <div class="preview-content">
-                <textarea x-model="code" name="code" id="code"></textarea>
+                <textarea x-model="code" name="code" id="code" placeholder="Enter your code..." title="Code input" spellcheck="false"></textarea>
             </div>
             <div class="iframe-container">
                 <iframe id="preview" x-bind:srcDoc="code" loading="lazy" style="border:1px solid;"></iframe>
